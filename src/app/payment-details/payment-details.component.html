@@ -1,0 +1,207 @@
+
+<div class="home-teams">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                {{getUSer}}
+                <div>
+                    {{userType}}
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                 
+                <a href="#" (click)="goPaymentDetail()">
+                    Apply application birth Certificate
+                </a>
+                
+            </div>
+            <div class="col-md-3">
+                
+                <a href="#" (click)="goPaymentStatus()">
+                View application birth certificate
+            </a>
+              <!-- <button type="button" name="log" id="log" (click)="goPaymentDetail()" >View application birth certificate</button>  -->
+            </div>
+            <div class="col-md-3">
+            <button type="button" name="login" id="logout" (click)="logOut()">Logout</button>
+            </div>
+            <!-- <div style="background-color: black; height: 50px;">
+                4
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+<div class="card">
+
+
+    <div class="card-body">
+
+        <div class="col-md-9" style="background-color: antiquewhite;">
+            <h4 class="head">Login</h4>
+
+        </div>
+        <div class="col-md-12">
+
+            <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+                <div class="col-md-4">
+                    <label class="form-label">Child Name</label>
+                    <input type="text" formControlName="child_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.child_name.errors }" />
+                    <div *ngIf="submitted && f.child_name.errors" class="invalid-feedback">
+                        <div *ngIf="f.child_name.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Father Name</label>
+                    <input type="text" formControlName="father_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.father_name.errors }" />
+                    <div *ngIf="submitted && f.father_name.errors" class="invalid-feedback">
+                        <div *ngIf="f.father_name.errors.required">father Name is required</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Mother Name</label>
+                    <input type="text" formControlName="mother_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mother_name.errors }" />
+                    <div *ngIf="submitted && f.mother_name.errors" class="invalid-feedback">
+                        <div *ngIf="f.mother_name.errors.required">mother Name is required</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Place Of Birth</label>
+                    <input type="text" formControlName="birth_place" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.birth_place.errors }" />
+                    <div *ngIf="submitted && f.birth_place.errors" class="invalid-feedback">
+                        <div *ngIf="f.birth_place.errors.required">Place of Birth is required</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Date Of Birth</label>
+                    <input
+      type="text"
+      placeholder="Datepicker"
+      formControlName="birth_date"
+      class="form-control"
+      bsDatepicker
+      bsDatepicker
+       [ngClass]="{ 'is-invalid': submitted && f.birth_date.errors }" 
+      [bsConfig]="{ isAnimated: true }">
+
+                     <!-- <input
+      type="text"
+      placeholder="Datepicker"
+      class="form-control"
+      bsDatepicker
+      [bsConfig]="{ isAnimated: true }"> -->
+                    <!-- <input type="text" formControlName="birth_date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.birth_date.errors }" /> -->
+                    <div *ngIf="submitted && f.birth_date.errors ||birthStatus" class="invalid-feedback">
+                        <div *ngIf="f.birth_date.errors.required">Date of Birth is required</div>
+                    </div>
+                </div>
+                <!-- <div class="radio-inline">
+                    <input id="gender" type="radio" name="genderControl" formControlName="genderControl" />
+                    <label class="radio-label"> Male</label>
+                    <input id="gender" type="radio" name="genderControl" formControlName="genderControl" />
+                    <label class="radio-label">Female</label>
+                  </div>
+                  <div>
+                    <input id="male" type="radio" class="custom-control-input" value="male" name="gender" ngModel required>
+                    <label class="custom-control-label" for="male">Male</label>
+                 </div>
+                 <div>
+                    <input id="female" type="radio" class="custom-control-input" value="female" name="gender" ngModel required>
+                    <label class="custom-control-label" for="female">Female</label>
+                 </div> -->
+                 <!-- <div *ngIf="isSubmitted && myForm.invalid">
+                    <p>Please select either value</p>
+                 </div> -->
+    <div class="col-md-4">
+<h4>Sex</h4>
+        <div >
+            <input id="male" type="radio" [ngClass]="{ 'is-invalid': submitted && f.sex.errors }"  class="custom-control-input" value="male" name="sex" formControlName="sex">
+            <label class="custom-control-label" for="male">Male</label>
+         </div>
+         <div>
+            <input id="female" type="radio" [ngClass]="{ 'is-invalid': submitted && f.sex.errors }"  class="custom-control-input" value="female" name="sex" formControlName="sex">
+            <label class="custom-control-label" for="female">Female</label>
+         </div>
+         <div *ngIf="sexStatus" [ngStyle]="{'color': (sexStatus === 'true') ? 'red' : (sexStatus === 'true') ? 'red' : (sexStatus === 'true') ? 'red' : 'red'}">
+            <p>Please select either value</p>
+         </div>
+         <div *ngIf="submitted && f.sex.errors || sexStatus" class="invalid-feedback">
+            <div *ngIf="f.sex.errors.required">gender is required</div>
+        </div>
+
+
+    </div>
+    
+                 
+    
+    
+    
+                <div class="col-md-4">
+                    permanent address of Parent
+                    <label class="form-label">State</label>
+                    <select formControlName="state" #mySelect  [ngClass]="{ 'is-invalid': submitted && f.state.errors }"
+                    (change)='getAlldestrictbyStateId(mySelect.value)' class="form-control">  
+                        <option disabled>Select State</option>  
+                        <option>Choose State</option>  
+                        <option   *ngFor="let List of stateList">{{List.state_name}}</option>  
+                    </select>  
+                    <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                        <div *ngIf="f.state.errors.required">state is required</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Select District</label>
+                    <select formControlName="district" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.district.errors }">  
+                        <option disabled>Select District</option>  
+                        <option>Choose Destrict</option>  
+                        <option *ngFor="let deistrctList of districtList">{{deistrctList.district_name}}</option>  
+                    </select>  
+                    <div *ngIf="submitted && f.district.errors" class="invalid-feedback">
+                        <div *ngIf="f.district.errors.required">district  is required</div>
+                    </div>
+                </div>
+    
+                <div class="col-md-4">
+                    <label class="form-label">House no locality zip </label>
+                    <input type="text" formControlName="house_detail" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.house_detail.errors }" />
+                    <div *ngIf="submitted && f.house_detail.errors" class="invalid-feedback">
+                        <div *ngIf="f.house_detail.errors.required">houseAddress is required</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Upload a File</label>
+                    <input type="file"
+                    formControlName="address_proof"
+               id="file"
+               (change)=" handleFileInput($event)"
+               >
+                    <!-- <input type="password" formControlName="father_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div> -->
+                </div>
+
+                <div class="col-md-4" style="margin-top: 20px;">
+                    <button [disabled]="loading" class="btn btn-primary">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                        Apply
+                    </button>
+                </div>
+                <div class="col-md-4" style="margin-top: 20px;">
+                    <button [disabled]="loading" (click)="getStatus()" class="btn btn-primary">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                        Rejecr
+                    </button>
+                </div>
+                <div>
+                   
+                   
+                    <!-- <a routerLink="../register" class="btn btn-link">Register</a> -->
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</div>

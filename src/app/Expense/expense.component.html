@@ -1,0 +1,52 @@
+
+      <div class="container" style="align-items: center;">
+
+
+<form [formGroup]="form" (submit)="submit(form.value)">
+  
+    <fieldset>
+      <legend>Expense</legend>
+      <ng-container formArrayName="contacts" *ngFor="let contact of contacts.controls; index as i">
+        <ng-container [formGroupName]="i">
+            <div class="form-group">
+                <label  for="phone">ExpenseType:</label>
+                <input type="tel" class="form-control" id="phone" name="phone"  formControlName="expenseType">
+            </div>
+          
+            <div class="form-group">
+  
+          <label for="email">money:</label>
+          <input type="email"  class="form-control" id="money" name="money"  formControlName="money">
+        </div>
+        <div class="form-group">
+
+          <label class="form-label">Upload a File</label>
+          <input type="file"  class="form-control"
+          formControlName="address_proof"
+     id="file{{i}}"
+     (change)=" handleFileInput($event,i)"
+     >
+    </div>
+<div slot="margin-top:50px">
+    <button class="btn-remove" type="button" (click)="removeContactField(i)">x</button>
+
+</div>
+  
+          <br><br>
+        </ng-container>
+      </ng-container>
+<div slot="margin-top:50px">
+  
+      <button class="btn-add" type="button" (click)="addContactField()">Add</button>
+      <br/>
+</div>
+    </fieldset>
+<div slot="margin-top:50px">
+  
+    <button class="btn-submit" type="submit">Submit</button>
+</div>
+    <button class="btn-reset" type="button" (click)="reset()">Reset</button>
+  </form>
+</div>
+
+  

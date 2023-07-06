@@ -1,0 +1,140 @@
+
+<div class="home-teams">
+    <div class="container">
+        <div class="row" style="height: 50px; background-color: bisque;">
+
+            <div class="col-md-3">
+                {{getUSer}}
+                <div>
+                    {{userType}}
+                </div>
+            </div>
+            <div class="col-md-3">
+                 
+                <!-- <a href="#" (click)="goPaymentDetail()">
+                    Apply application birth Certificate
+                </a> -->
+                
+            </div>
+            <div class="col-md-3">
+                
+                <a href="#" (click)="goPaymentStatus()">
+                View All Application
+            </a>
+              <!-- <button type="button" name="log" id="log" (click)="goPaymentDetail()" >View application birth certificate</button>  -->
+            </div>
+            
+            <div class="col-md-3">
+    <button class="btn btn-success btn-block" style="background-color: bisque;" (click)="logOut()">Logout</button>
+
+            </div>
+        
+
+          
+            
+        </div>
+        <div class="row" >
+        </div>
+        <div class="row" style="height: 50px;">
+            <div class="col-md-6"  style=" height: 40px;">
+            View All Application
+
+            </div>
+            <div >
+            </div>
+
+        </div>
+        <div class="row" style="height: 200px;">
+            <div class="col-md-12" >
+                <table style="width: 1000px;">
+      
+        
+                    <tr style="height: 50px;">
+                        <th style="background-color: cadetblue;">
+                            Sr.
+                        </th>
+                        <th style="background-color: cadetblue;">
+                            Application Type
+                        </th>
+                        <th style="background-color: cadetblue;">
+                            Applied by
+                        </th>
+                        <th style="background-color: cadetblue;">
+                        Applied on
+                        </th>
+                        <th style="background-color: cadetblue;">
+                            Child Name
+                            </th>
+                            <th style="background-color: cadetblue;">
+                                Father Name
+                                </th>
+                                <th style="background-color: cadetblue;">
+                                    Gender
+                                    </th>
+                                    <th style="background-color: cadetblue;">
+                                        Address Proof
+                                    </th>
+                                    <th style="background-color: cadetblue;">
+                                        Action
+                                    </th>
+                    </tr>
+                    <tr style="height: 50px;" *ngFor="let ab of listView">
+                       <td>
+                        {{ab.user_id}}
+                       </td>
+                        <td>
+                          Birth Certificate
+                        </td>
+                        <td>
+
+                            
+                            {{ab.created_by}}
+                        </td>
+                        <td>
+                            {{ab.create_date| date :'dd/MM/yyyy'}}
+                        </td>
+                        <td>
+                            {{ab.child_name}}
+                        </td>
+                        <td>
+                            {{ab.father_name}}
+                        </td>
+                        <td>
+                            {{ab.sex}}
+                        </td>
+                        <td>
+                            <div class="col-md-4 text-right" style="height: 10px; width: 10;">
+                            <button (click)="ViewPdf(ab.user_id)" class="btn">
+
+                            <i class="fa fa-file-pdf-o" style="font-size:24px"></i>
+
+                            </button>
+                                <!-- <button class="btn btn-success btn-block" (click)="ViewPdf(ab.user_id)">Download PDF</button> -->
+                              </div>
+                        </td>
+                      
+                        <td>
+                            <div  class="col-md-3">
+                                <a href="#" (click)="approved(ab.user_id,ab.role_id)">
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                  </a>
+
+                            </div>
+                            <div class="col-md-3">
+ 
+  <a href="#" (click)="rejected(ab.user_id,ab.role_id)">
+    <span class="glyphicon glyphicon-remove"></span>
+  </a>
+                            </div>
+                            
+                        </td>
+                    </tr>
+                </table>
+            </div> 
+        </div>
+    </div>
+</div>
+
+
+<!-- <app-createPDF></app-createPDF> -->
+

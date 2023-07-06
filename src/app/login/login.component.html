@@ -1,0 +1,117 @@
+<div class="card">
+    <div class="card-body">
+        <div class="col-md-6">
+            <h4>Login</h4>
+
+        </div>
+<!-- 
+        <div class="row" style="height: 200px; text-align: center;">
+            <div class="col-md-12" style="text-align: center;">
+                <table style="width: 700px;">
+        
+        
+                    <tr style="height: 50px;">
+                        <th style="background-color: cadetblue;">
+                        title
+                        </th>
+                        <th style="background-color: cadetblue;">
+                            year
+                        </th>
+                        <th style="background-color: cadetblue;">
+                            time
+                        </th>
+                        <th style="background-color: cadetblue;">
+                        language
+                        </th>
+                        <th style="background-color: cadetblue;">
+                            movie Detail
+                            </th>
+                            <th style="background-color: cadetblue;">
+                                movie Country
+                                </th>
+                              
+                    </tr>
+                    <tr  *ngFor="let ab of listView  ">
+                        
+                         <td>
+                            {{ab.mov_title}}
+        
+                        </td>
+                        <td>
+                            {{ab.mov_year}}
+        
+                        </td>
+                        <td>
+                            {{ab.mov_time}}
+                        </td>
+                        <td>
+                            {{ab.mov_lang}}
+                        </td>
+                        <td>
+        
+                            {{ab.mov_dt_rel}}
+                        </td>
+                        <td>
+                            {{ab.mov_rel_country}}
+                        </td> 
+                    </tr>  
+                </table>
+            </div> 
+        </div> -->
+
+      
+        <div class="col-md-3">
+            <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input type="text" formControlName="user_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.user_name.errors }" />
+                    <div *ngIf="submitted && f.user_name.errors" class="invalid-feedback">
+                        <div *ngIf="f.user_name.errors.required">Username is required</div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-4">
+                    <label class="form-label">Select District</label>
+                    <select formControlName="district" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.district.errors }">  
+                        <option disabled>Select District</option>  
+                        <option>Choose Destrict</option>  
+                        <option *ngFor="let deistrctList of districtList">{{deistrctList.name}}</option>  
+                    </select>  
+                    <div *ngIf="submitted && f.district.errors" class="invalid-feedback">
+                        <div *ngIf="f.district.errors.required">district  is required</div>
+                    </div>
+                </div> -->
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                </div>
+                <div>
+                    <button [disabled]="loading" class="btn btn-primary">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+          
+        </div>
+       
+       
+    </div>
+</div>
+
+
+
+<!-- <button (click)="getSomeDetailfromjavaspring()" >java spring</button> -->
+
+
+
+
+
+
+
+
